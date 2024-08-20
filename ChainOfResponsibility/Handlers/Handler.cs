@@ -8,7 +8,7 @@ namespace ChainOfResponsibility.Handlers
 {
     public abstract class Handler<T> : IHandler<T> where T : class
     {
-        private IHandler<T> Next { get; set; }
+        protected IHandler<T> Next { get; set; }
         public virtual void Handle(T request)
         {
             Next?.Handle(request);
